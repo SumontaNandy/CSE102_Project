@@ -485,6 +485,7 @@ void _pause_game()
     iText(100, 400, "Do U want to continue? ",GLUT_BITMAP_HELVETICA_18);
     iShowBMP(40,350,"resume.bmp");
     iShowBMP(210,350,"save&quit.bmp");
+    iShowBMP(125,300,"home.bmp");
 }
 void reset()
 {
@@ -826,11 +827,19 @@ void iMouse(int button, int state, int mx, int my)
         {
 
             save_game();
-            printf("%d\n",r_level);
+            //printf("%d\n",r_level);
             Save_Game=1;
             all_mood_off();
             exit(0);
         }
+        ///home
+        else if((mx >= 125 && mx <= 275) && (my >= 300 && my <= 330 ) && mood == 7)
+        {
+            reset();
+            flag = 0;
+            mood = 0;
+        }
+
         ///home
         else if((mx >= 40 && mx <= 190) && (my >= 300 && my <= 330 ) && mood == 8)
         {
